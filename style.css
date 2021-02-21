@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  /* Muve to center vertcally */
+  height: 100vh;
+  justify-content: center;
+  /* Preents scrollbar from showing by default */
+  overflow: hidden;
+  background-color: #f6f7fb;
+}
+
+.container {
+  text-align: center;
+}
+
+/* Creates a basic setup */
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  width: 350px;
+  max-width: 100%;
+  position: relative;
+}
+
+/* Horizontal Line Inactive */
+.progress-container::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 4px;
+  width: 100%;
+  background-color: #e0e0e0;
+  z-index: -1;
+  /* Center of Circle */
+  transform: translateY(-50%);
+  transition: 0.4s ease;
+  /* Always required hen using before */
+  content: '';
+}
+
+/* Horizontal Line Axtive*/
+.progress {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 4px;
+  width: 0;
+  background-color: blueviolet;
+  z-index: -1;
+  /* Center of Circle */
+  transform: translateY(-50%);
+  transition: 0.4s ease;
+}
+
+/* Circle */
+.circle {
+  background-color: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  /* Center number */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 3px solid #e0e0e0;
+  transition: border 0.4s ease;
+}
+
+.circle.active {
+  border-color: blueviolet;
+}
