@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
 
+:root {
+  --line-border-fill: blueviolet;
+  --line-border-empty: #e0e0e0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -38,7 +43,7 @@ body {
   top: 50%;
   height: 4px;
   width: 100%;
-  background-color: #e0e0e0;
+  background-color: var(--line-border-empty);
   z-index: -1;
   /* Center of Circle */
   transform: translateY(-50%);
@@ -54,7 +59,7 @@ body {
   top: 50%;
   height: 4px;
   width: 0;
-  background-color: blueviolet;
+  background-color: var(--line-border-fill);
   z-index: -1;
   /* Center of Circle */
   transform: translateY(-50%);
@@ -73,10 +78,35 @@ body {
   align-items: center;
   justify-content: center;
 
-  border: 3px solid #e0e0e0;
+  border: 3px solid var(--line-border-empty);
   transition: border 0.4s ease;
 }
 
 .circle.active {
-  border-color: blueviolet;
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border-radius: 6px;
+  font-family: inherit;
+  cursor: pointer;
+  border: 0;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
 }
